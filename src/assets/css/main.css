@@ -1,0 +1,158 @@
+/*overwrites von bootstrap styles*/
+a:focus, a:hover {
+  outline: none;
+  text-decoration: none; }
+
+.btn {
+  width: 100%; }
+
+.btn-primary {
+  color: #fff;
+  background-color: #1e7ccb;
+  border-color: #1e7ccb; }
+
+.btn-outline-primary {
+  color: #1e7ccb;
+  background-color: #fff;
+  border-color: #1e7ccb; }
+
+.btn-wrap {
+  white-space: initial; }
+
+.card-body {
+  padding: 0 0 0.4em 0; }
+
+.card {
+  border: 0; }
+  .card button {
+    letter-spacing: 1px; }
+
+.navbar-toggler {
+  margin: 0 auto 0; }
+
+body {
+  background-color: #e0effb;
+  margin-top: 0.4em; }
+
+.container {
+  border-radius: 13px;
+  background-color: #FFFFFF; }
+
+h1, .h1 {
+  text-align: center;
+  border-bottom: 1px solid #000000;
+  letter-spacing: 2px; }
+
+h2, .h2 {
+  text-align: center;
+  border-bottom: 1px dotted #CCCCCC; }
+
+.hide-at-mobile {
+  display: none; }
+
+@media (min-width: 768px) {
+  .hide-at-mobile {
+    display: block; } }
+.date {
+  font-size: 75%;
+  position: absolute;
+  top: 0.3em;
+  right: 2em;
+  z-index: 55; }
+
+#printGrafik, .d-print-only {
+  display: none; }
+
+.logos {
+  margin: 1em 0; }
+
+/* ======================================== */
+/* Meldungen */
+/* ======================================== */
+.errorMessage {
+  font-size: 150%;
+  line-height: 150%;
+  background-color: #FFFFFF;
+  color: #a60000;
+  padding: 5px;
+  margin: 1.1em 0; }
+
+#erfolgsMessage {
+  font-size: 130%;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 3px;
+  border: 1px solid #CCCCCC;
+  background-color: #fee7e7; }
+
+.erfolgsMessage {
+  color: #f60;
+  font-size: 120%;
+  line-Height: 150%;
+  margin: 10px 0; }
+
+.hint {
+  /* in formularen */
+  color: #f40;
+  font-weight: bold;
+  font-size: 125%; }
+
+.debug {
+  border: 1px solid red; }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #dddddd; }
+
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #FFFFFF; }
+
+.navbar {
+  margin: 5px 0 13px 0; }
+
+.docuList {
+  background-color: rgba(30, 124, 203, 0.3);
+  padding: 3px; }
+  .docuList a {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #000000; }
+  .docuList [class^="icon-"], .docuList [class*=" icon-"] {
+    font-size: 2em; }
+
+.totalNIHSS {
+  border-top: 1px solid #000;
+  border-bottom: 3px double #000;
+  padding: 13px; }
+
+fieldset, textarea {
+  border: 1px solid #CCCCCC;
+  padding: 0.3em; }
+
+legend {
+  padding-left: 0.3em; }
+
+.specialView > form {
+  background-color: rgba(30, 124, 203, 0.1);
+  padding: 1em; }
+
+.bgColor {
+  background-color: #1e7ccb; }
+
+fieldset .row {
+  margin-right: 0;
+  margin-left: 0; }
+
+#nav2 {
+  height: 120px;
+  background-image: url(../imagesLayout/klinikenLogos.gif);
+  background-repeat: no-repeat;
+  background-position: center; }
+
+footer {
+  margin: 1em 0 3em;
+  font-size: 75%; }
+
+/*# sourceMappingURL=main.css.map */

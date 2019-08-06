@@ -1,0 +1,66 @@
+@page :right {
+  margin-left: 3cm;
+  margin-right: 1.5cm; }
+@page :left {
+  margin-left: 1.5cm;
+  margin-right: 3cm; }
+body {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  color: #000;
+  font-size: 13pt;
+  line-height: 23pt; }
+
+h1 {
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 3pt; }
+
+h4 {
+  margin: 0; }
+
+div {
+  vertical-align: top; }
+
+.text-right {
+  text-align: right; }
+
+.print-smaller {
+  font-size: 80%; }
+
+.col-sm-3 {
+  width: 23%; }
+
+.col-sm-6 {
+  width: 45%; }
+
+.mr-3 {
+  margin-right: 5pt; }
+
+.d-print-inline {
+  display: inline-block; }
+
+.d-print-none, hr {
+  display: none; }
+
+.delimiter {
+  border-right: 1px dotted grey;
+  margin-right: 3pt; }
+
+.delimiter:last-child {
+  border-right: none;
+  margin-right: 0; }
+
+fieldset {
+  margin-top: 13pt; }
+
+legend {
+  background-color: white; }
+
+#printGrafik {
+  display: block;
+  margin: 0 0 10px 0; }
+  #printGrafik #printGrafik img {
+    width: 660px;
+    margin-bottom: 10px; }
+
+/*# sourceMappingURL=print.css.map */
