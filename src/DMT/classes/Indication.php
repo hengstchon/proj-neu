@@ -21,45 +21,6 @@ class Indication
     /**
      * @return mixed
      */
-    public function getIndicationID()
-    {
-        return $this->indicationID;
-    }
-
-    public function setIndicationID($indicationID)
-    {
-        $this->indicationID = $indicationID;
-    }
-
-    public function getIndicationCode()
-    {
-        return $this->indicationCode;
-    }
-
-    public function setIndicationCode($indicationCode)
-    {
-        $this->indicationCode = $indicationCode;
-    }
-
-    public function getIndicationName()
-    {
-        return $this->indicationName;
-    }
-
-    public function setIndicationName($indicationName)
-    {
-        $this->indicationName = $indicationName;
-    }
-
-    public function getIndicationComment()
-    {
-        return $this->indicationComment;
-    }
-
-    public function setIndicationComment($indicationComment)
-    {
-        $this->indicationComment = $indicationComment;
-    }
 
     public function getEntry($id)
     {
@@ -99,5 +60,15 @@ class Indication
         }
         mysqli_close($access);
         return $entries;
+    }
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 }

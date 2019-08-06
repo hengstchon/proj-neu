@@ -2,7 +2,7 @@
 /**
 
  * ------------------------------------------------------------------
- * recieve all variables from $_GET and $_POST
+ * receive all variables from $_GET and $_POST
  * ------------------------------------------------------------------
  * Working History
  * Version 2.1  Oktober-November 2018

@@ -38,5 +38,5 @@ include($includePfadURL . "helpers/nav.php");
 include($includePfadURL . "helpers/nihss.php");
 include($includePfadURL . "helpers/mailer.php");
 include($includePfadURL . "helpers/patients.php");
-include($includePfadURL . "helpers/recieve.php");
+include($includePfadURL . "helpers/receive.php");
 include($includePfadURL . "helpers/thrombolyse.php");

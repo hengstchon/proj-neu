@@ -21,45 +21,6 @@ class Medication
     /**
      * @return mixed
      */
-    public function getMedicationID()
-    {
-        return $this->medicationID;
-    }
-
-    public function setMedicationID($medicationID)
-    {
-        $this->medicationID = $medicationID;
-    }
-
-    public function getMedicationText()
-    {
-        return $this->medicationText;
-    }
-
-    public function setMedicationText($medicationText)
-    {
-        $this->medicationText = $medicationText;
-    }
-
-    public function getMedicationName()
-    {
-        return $this->medicationName;
-    }
-
-    public function setMedicationName($medicationName)
-    {
-        $this->medicationName = $medicationName;
-    }
-
-    public function getMedicationComment()
-    {
-        return $this->medicationComment;
-    }
-
-    public function setMedicationComment($medicationComment)
-    {
-        $this->medicationComment = $medicationComment;
-    }
 
     public function getEntry($id)
     {
@@ -121,5 +82,15 @@ class Medication
         }
         mysqli_close($access);
         return $entries;
+    }
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 }

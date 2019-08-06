@@ -148,116 +148,6 @@ class Arzt
         return $entries;
     }
 
-    public function getArztID()
-    {
-        return $this->arztID;
-    }
-
-    public function setArztID($arztID)
-    {
-        $this->arztID = $arztID;
-    }
-
-    public function getArztTimestamp()
-    {
-        return $this->arztTimestamp;
-    }
-
-    public function setArztTimestamp($arztTimestamp)
-    {
-        $this->arztTimestamp = $arztTimestamp;
-    }
-
-    public function getArztGender()
-    {
-        return $this->arztGender;
-    }
-
-    public function setArztGender($arztGender)
-    {
-        $this->arztGender = $arztGender;
-    }
-
-    public function getAcadTitle()
-    {
-        return $this->acadTitle;
-    }
-
-    public function setAcadTitle($acadTitle)
-    {
-        $this->acadTitle = $acadTitle;
-    }
-
-    public function getArztFirstName()
-    {
-        return $this->arztFirstName;
-    }
-
-    public function setArztFirstName($arztFirstName)
-    {
-        $this->arztFirstName = $arztFirstName;
-    }
-
-    public function getArztLastName()
-    {
-        return $this->arztLastName;
-    }
-
-    public function setArztLastName($arztLastName)
-    {
-        $this->arztLastName = $arztLastName;
-    }
-
-    public function getArztPhone()
-    {
-        return $this->arztPhone;
-    }
-
-    public function setArztPhone($arztPhone)
-    {
-        $this->arztPhone = $arztPhone;
-    }
-
-    public function getArztComment()
-    {
-        return $this->arztComment;
-    }
-
-    public function setArztComment($arztComment)
-    {
-        $this->arztComment = $arztComment;
-    }
-
-    public function getUserID()
-    {
-        return $this->userID;
-    }
-
-    public function setUserID($userID)
-    {
-        $this->userID = $userID;
-    } 
-
-    public function getClinicID()
-    {
-        return $this->clinicID;
-    }
-
-    public function setClinicID($clinicID)
-    {
-        $this->clinicID = $clinicID;
-    }
-
-    public function getArztStatus()
-    {
-        return $this->arztStatus;
-    }
-
-    public function setArztStatus($arztStatus)
-    {
-        $this->arztStatus = $arztStatus;
-    }
-
     public function saveEntry_arzt($entry)
     {
         global $x;
@@ -338,5 +228,29 @@ class Arzt
         } else {
             print "<p class='errorMessage'>Datenbankabfrage nicht erfolgreich! [deleteArzt($arztID)]</p>";
         }
+    }
+
+    /* set and get functions:
+     *
+     * like:
+     *
+     * public function getArztID() {
+     *   return $this->arztID;
+     * }
+     *
+     * public function setArztID($arztID) {
+     *   $this->arztID = $arztID;
+     * }
+     *
+     */
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 }

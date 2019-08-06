@@ -23,55 +23,6 @@ class Clinic
     /**
      * @return mixed
      */
-    public function getClinicID()
-    {
-        return $this->clinicID;
-    }
-
-    public function setClinicID($clinicID)
-    {
-        $this->clinicID = $clinicID;
-    }
-
-    public function getClinicType()
-    {
-        return $this->clinicType;
-    }
-
-    public function setClinicType($clinicType)
-    {
-        $this->clinicType = $clinicType;
-    }
-
-    public function getClinicName()
-    {
-        return $this->clinicName;
-    }
-
-    public function setClinicName($clinicName)
-    {
-        $this->clinicName = $clinicName;
-    }
-
-    public function getClinicInitial()
-    {
-        return $this->clinicInitial;
-    }
-
-    public function setClinicInitial($clinicInitial)
-    {
-        $this->clinicInitial = $clinicInitial;
-    }
-
-    public function getClinicComment()
-    {
-        return $this->clinicComment;
-    }
-
-    public function setClinicComment($clinicComment)
-    {
-        $this->clinicComment = $clinicComment;
-    }
 
     public function getEntry($id)
     {
@@ -112,4 +63,15 @@ class Clinic
         mysqli_close($access);
         return $entries;
     }
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
+    }
+
 }

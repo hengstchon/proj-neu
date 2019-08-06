@@ -22,45 +22,6 @@ class Login
     /**
      * @return mixed
      */
-    public function getUserID()
-    {
-        return $this->userID;
-    }
-
-    public function setUserID($userID)
-    {
-        $this->userID = $userID;
-    }
-
-    public function getUserLogin()
-    {
-        return $this->userLogin;
-    }
-
-    public function setUserLogin($userLogin)
-    {
-        $this->userLogin = $userLogin;
-    }
-
-    public function getUserPW()
-    {
-        return $this->userPW;
-    }
-
-    public function setUserPW($userPW)
-    {
-        $this->userPW = $userPW;
-    }
-
-    public function getUserEmail()
-    {
-        return $this->userEmail;
-    }
-
-    public function setUserEmail($userEmail)
-    {
-        $this->userEmail = $userEmail;
-    }
 
     public function getLogin_UserID($userLogin)
     {
@@ -216,5 +177,15 @@ class Login
             print "<p class='errorMessage'>Kein Zugriff auf Datenbank [saveArztLogin]!</p>";
         }
         return $ID;
+    }
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 }

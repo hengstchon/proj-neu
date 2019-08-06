@@ -19,45 +19,6 @@ class Condition
     /**
      * @return mixed
      */
-    public function getConditionID()
-    {
-        return $this->conditionID;
-    }
-
-    public function setConditionID($conditionID)
-    {
-        $this->conditionID = $conditionID;
-    }
-
-    public function getConditionText()
-    {
-        return $this->conditionText;
-    }
-
-    public function setConditionText($conditionText)
-    {
-        $this->conditionText = $conditionText;
-    }
-
-    public function getConditionName()
-    {
-        return $this->conditionName;
-    }
-
-    public function setConditionName($conditionName)
-    {
-        $this->conditionName = $conditionName;
-    }
-
-    public function getConditionComment()
-    {
-        return $this->conditionComment;
-    }
-
-    public function setConditionComment($conditionComment)
-    {
-        $this->conditionComment = $conditionComment;
-    }
 
     public function getEntry($id)
     {
@@ -122,5 +83,15 @@ class Condition
         }
         mysqli_close($access);
         return $entries;
+    }
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 }

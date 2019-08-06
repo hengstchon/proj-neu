@@ -21,35 +21,6 @@ class Indication2Detail
     /**
      * @return mixed
      */
-    public function getIndication2DID()
-    {
-        return $this->indication2DID;
-    }
-
-    public function setIndication2DID($indication2DID)
-    {
-        $this->indication2DID = $indication2DID;
-    }
-
-    public function getIndication2DCode()
-    {
-        return $this->indication2DCode;
-    }
-
-    public function setIndication2DCode($indication2DCode)
-    {
-        $this->indication2DCode = $indication2DCode;
-    }
-
-    public function getIndication2DName()
-    {
-        return $this->indication2DName;
-    }
-
-    public function setIndication2DName($indication2DName)
-    {
-        $this->indication2DName = $indication2DName;
-    }
 
     public function getEntry($id)
     {
@@ -89,5 +60,15 @@ class Indication2Detail
         }
         mysqli_close($access);
         return $entries;
+    }
+
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 }

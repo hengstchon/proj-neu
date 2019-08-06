@@ -371,93 +371,14 @@ class Patient
         return array($patientID => $errorMessages);
     }
 
-    public function getPatientID()
-    {
-        return $this->patientID;
+    function __call($fun, $args) {
+      if (substr($fun, 0, 3) == 'get') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        return $this->$var;
+      } else if (substr($fun, 0, 3) == 'set') {
+        $var = strtolower(substr($fun, 3, 1)).substr($fun, 4);
+        $this->$var = $args[0];
+      }
     }
 
-    public function setPatientID($patientID)
-    {
-        $this->patientID = $patientID;
-    }
-
-    public function getPGender()
-    {
-        return $this->pGender;
-    }
-
-    public function setPGender($pGender)
-    {
-        $this->pGender = $pGender;
-    }
-
-    public function getPBday()
-    {
-        return $this->pBday;
-    }
-
-    public function setPBday($pBday)
-    {
-        $this->pBday = $pBday;
-    }
-
-    public function getPFirstName()
-    {
-        return $this->pFirstName;
-    }
-
-    public function setPFirstName($pFirstName)
-    {
-        $this->pFirstName = $pFirstName;
-    }
-
-    public function getPLastName()
-    {
-        return $this->pLastName;
-    }
-
-    public function setPLastName($pLastName)
-    {
-        $this->pLastName = $pLastName;
-    }
-
-    public function getPPhone()
-    {
-        return $this->pPhone;
-    }
-
-    public function setPPhone($pPhone)
-    {
-        $this->pPhone = $pPhone;
-    }
-
-    public function getPStreet()
-    {
-        return $this->pStreet;
-    }
-
-    public function setPStreet($pStreet)
-    {
-        $this->pStreet = $pStreet;
-    }
-
-    public function getPZipCode()
-    {
-        return $this->pZipCode;
-    }
-
-    public function setPZipCode($pZipCode)
-    {
-        $this->pZipCode = $pZipCode;
-    }
-
-    public function getPCity()
-    {
-        return $this->pCity;
-    }
-
-    public function setPCity($pCity)
-    {
-        $this->pCity = $pCity;
-    }
 }
