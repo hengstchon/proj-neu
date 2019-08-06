@@ -230,7 +230,7 @@ class Arzt
         }
     }
 
-    /* set and get functions:
+    /* set* and get* functions:
      *
      * like:
      *
