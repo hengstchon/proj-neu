@@ -8,7 +8,7 @@
  * Version 2.1  Oktober-November 2018
  * ------------------------------------------------------------------
  */
-header('Content-Type: text/html; charset=ISO-8859-1');
+// header('Content-Type: text/html; charset=ISO-8859-1');
 include($baseURL . "html_head_parts.php");
 $datum = date("d.m.Y");
 ?><!DOCTYPE html>
